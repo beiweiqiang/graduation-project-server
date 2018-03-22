@@ -1,12 +1,12 @@
 package com.beiweiqiang.error;
 
-public class LoginError extends RuntimeException{
-  private int code = 2001;  //异常对应的返回码
-  private String msg = "Username or password error!";  //异常对应的描述信息
+public class RegisterError extends RuntimeException {
+  private int code = 1001;
+  private String msg = "username already exist!";
 
-  public LoginError() {
+  public RegisterError() {
+
   }
-
   public int getCode() {
     return code;
   }
@@ -23,4 +23,3 @@ public class LoginError extends RuntimeException{
     this.msg = msg;
   }
 }
-

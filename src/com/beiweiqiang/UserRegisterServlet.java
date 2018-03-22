@@ -1,5 +1,6 @@
 package com.beiweiqiang;
 
+import com.beiweiqiang.error.RegisterError;
 import com.beiweiqiang.model.Response;
 import com.beiweiqiang.model.User;
 import com.beiweiqiang.service.UserService;
@@ -34,25 +35,17 @@ public class UserRegisterServlet extends HttpServlet {
 
     User receiveUser = BeanUtils.toBean(JsonReader.receivePost(request), User.class);
 
-
     try {
-      //    返回错误码
-//      0: 成功
-//      1001: 已经被注册过
-      int code = UserService.register(receiveUser);
-      myLogger.info(code + "");
-      if (code == 0) {
-        Response response1 = new Response(200, "success");
-        String json = new Gson().toJson(response1);
-        myLogger.info(json);
-        response.getWriter().write(json);
-      }
-      if (code == 1001) {
-        Response response1 = new Response(1001, "用户名已经被注册");
-        String json = new Gson().toJson(response1);
-        myLogger.info(json);
-        response.getWriter().write(json);
-      }
+      UserService.register(receiveUser);
+      Response response1 = new Response(200, "success");
+      String json = new Gson().toJson(response1);
+      myLogger.info(json);
+      response.getWriter().write(json);
+    } catch (RegisterError e) {
+      Response response1 = new Response(e.getCode(), e.getMsg());
+      String json = new Gson().toJson(response1);
+      myLogger.info(json);
+      response.getWriter().write(json);
     } catch (Exception e) {
       e.printStackTrace();
     }

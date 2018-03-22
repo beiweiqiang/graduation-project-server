@@ -13,7 +13,7 @@ public class UserService {
     return userDao.login(user);
   }
 
-  public static int register(User user) throws SQLException {
-    return userDao.register(user);
+  public static void register(User user) throws SQLException {
+    userDao.register(user);
   }
 }
