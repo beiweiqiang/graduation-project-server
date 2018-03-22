@@ -58,6 +58,18 @@ public class User {
     this.lastLoginTime = lastLoginTime;
   }
 
+  public User(String username) {
+    this.username = username;
+  }
+
+  public User() {
+  }
+
+  public User(String username, String password) {
+    this.username = username;
+    this.password = password;
+  }
+
   @Override
   public String toString() {
     return User.class.toString() + ": " + id + ", " + username + ", " + password + ", " + createTime + ", " + lastLoginTime;

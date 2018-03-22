@@ -13,23 +13,13 @@ public class JDBCDao {
   static final String PASS = "heanqi";
   private Connection conn;
 
-  public JDBCDao() throws ClassNotFoundException, SQLException {
-    Class.forName(JDBC_DRIVER);
-
-    conn = DriverManager.getConnection(DB_URL, USER, PASS);
-
-//    Statement stmt = conn.createStatement();
-
-//    String sql = "select * from user";
-//    ResultSet rs = stmt.executeQuery(sql);
-
-//    while (rs.next()) {
-//      myLogger.info(rs.getInt(1) + ":" + rs.getString("email"));
-//    }
-
-//    rs.close();
-//    stmt.close();
-//    conn.close();
+  public JDBCDao() {
+    try {
+      Class.forName(JDBC_DRIVER);
+      conn = DriverManager.getConnection(DB_URL, USER, PASS);
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
   }
 
   public ResultSet query(String sql, String[] params) throws SQLException {
@@ -39,9 +29,18 @@ public class JDBCDao {
     for (int i = 1; i < params.length + 1; i++) {
       pstmt.setString(i, params[i - 1]);
     }
-    ResultSet rs = pstmt.executeQuery();
-//    pstmt.close();
-    return rs;
+    return pstmt.executeQuery();
   }
+
+  public int update(String sql, String[] params) throws SQLException {
+    myLogger.info(sql);
+    myLogger.info(Arrays.toString(params));
+    PreparedStatement pstmt = conn.prepareStatement(sql);
+    for (int i = 1; i < params.length + 1; i++) {
+      pstmt.setString(i, params[i - 1]);
+    }
+    return pstmt.executeUpdate();
+  }
+
 
 }

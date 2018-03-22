@@ -1,4 +1,4 @@
-package com.beiweiqiang;
+package com.beiweiqiang.utils;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -40,3 +40,4 @@ public class JsonReader {
 //    return json;
   }
 }
+

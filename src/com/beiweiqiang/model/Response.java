@@ -5,6 +5,11 @@ public class Response {
   private String msg;
   private Object data;
 
+  public Response(int code, String msg) {
+    this.code = code;
+    this.msg = msg;
+  }
+
   public Response(int code, String msg, Object data) {
     this.code = code;
     this.msg = msg;
