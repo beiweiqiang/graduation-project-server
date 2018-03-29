@@ -1,6 +1,5 @@
 package com.beiweiqiang.utils;
 
-
 import java.util.Map;
 import java.util.logging.Logger;
 
@@ -13,14 +12,10 @@ public class BeanUtils {
 
   public static <T> T toBean(Map map, Class<T> tClass) {
     try {
-      T bean = tClass.newInstance();
-      myLogger.info(bean.toString());
       myLogger.info(map.toString());
-//      org.apache.commons.beanutils.BeanUtils.populate(bean, map);
       Gson gson = new Gson();
       JsonElement jsonElement = gson.toJsonTree(map);
-      bean = gson.fromJson(jsonElement, tClass);
-      myLogger.info(bean.toString());
+      T bean = gson.fromJson(jsonElement, tClass);
       return bean;
     } catch (Exception e) {
       throw new RuntimeException(e);

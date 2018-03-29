@@ -8,7 +8,7 @@ public class JDBCDao {
   private static final Logger myLogger = Logger.getLogger("JDBCDao");
 
   static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-  static final String DB_URL = "jdbc:mysql://localhost:3306/graduation?useSSL=true";
+  static final String DB_URL = "jdbc:mysql://localhost:3306/graduation?useSSL=true&dbnameuseUnicode=true&characterEncoding=utf-8";
   static final String USER = "root";
   static final String PASS = "heanqi";
   private Connection conn;

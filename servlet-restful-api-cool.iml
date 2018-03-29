@@ -38,5 +38,7 @@
     <orderEntry type="library" name="commons-beanutils-1.9.2" level="project" />
     <orderEntry type="library" name="commons-dbutils-1.7" level="project" />
     <orderEntry type="library" name="commons-logging-1.2" level="project" />
+    <orderEntry type="library" name="commons-io-2.5" level="project" />
+    <orderEntry type="library" name="commons-lang3-3.7" level="project" />
   </component>
 </module>
