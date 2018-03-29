@@ -4,6 +4,7 @@ import com.beiweiqiang.dao.ChattingHistoryDao;
 import com.beiweiqiang.model.ChattingHistory;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Logger;
 
 public class ChattingHistoryService {
@@ -47,6 +48,10 @@ public class ChattingHistoryService {
       e.printStackTrace();
     }
 
+  }
+
+  public static ArrayList<String> getAllGroupName(ChattingHistory chattingHistory) throws SQLException {
+    return chattingHistoryDao.getAllGroupName(chattingHistory);
   }
 
 }
