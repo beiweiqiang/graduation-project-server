@@ -12,13 +12,8 @@ public class DataStatisticsService {
   private static final Logger myLogger = Logger.getLogger(DataStatisticsService.class.getSimpleName());
   private static DataStatisticsDao dataStatisticsDao = new DataStatisticsDao();
 
-  public static Map queryWordFrequency(DataStatistics dataStatistics) throws SQLException {
-    String s = dataStatisticsDao.queryWordFrequency(dataStatistics);
-    return ClassCast.stringToMap(s);
-  }
-  public static Map queryGroupChattingFrenquencyFrequency(DataStatistics dataStatistics) throws SQLException {
-    String s = dataStatisticsDao.queryGroupChattingFrenquencyFrequency(dataStatistics);
-    Map m = ClassCast.stringToMap(s);
-    return (Map) m.get(dataStatistics.getGroupName());
+  public static Map query(DataStatistics dataStatistics) throws SQLException {
+    String s = dataStatisticsDao.query(dataStatistics);
+     return ClassCast.stringToMap(s);
   }
 }

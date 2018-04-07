@@ -34,9 +34,7 @@ public class ChattingHistorySaveServlet extends HttpServlet {
     response.setHeader("Access-Control-Allow-Methods", "GET,POST");
 
     Map map = JsonReader.receivePost(request);
-//    String unixTimestamp = (String) map.get("createTime");
-//    myLogger.info(unixTimestamp + "");
-    map.put("createTime", new Timestamp(ClassCast.castDoubleToLong(map.get("createTime"))));
+    map.put("createTime", new Timestamp(System.currentTimeMillis()));
     ChattingHistory chattingHistory = BeanUtils.toBean(map, ChattingHistory.class);
 
     ChattingHistoryService.save(chattingHistory);

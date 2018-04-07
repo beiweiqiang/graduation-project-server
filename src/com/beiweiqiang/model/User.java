@@ -1,5 +1,7 @@
 package com.beiweiqiang.model;
 
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+
 import java.sql.Timestamp;
 
 public class User {
@@ -72,6 +74,6 @@ public class User {
 
   @Override
   public String toString() {
-    return User.class.toString() + ": " + id + ", " + username + ", " + password + ", " + createTime + ", " + lastLoginTime;
+    return ReflectionToStringBuilder.toString(this);
   }
 }

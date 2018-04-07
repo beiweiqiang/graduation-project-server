@@ -27,10 +27,8 @@ public class ChattingHistoryDao {
     sql = "SELECT group_name FROM user_chatting_history WHERE user_id=?;";
     String[] params = { chattingHistory.getUserId() + "" };
     ArrayList<String> groupNameArray = new ArrayList<>();
-//    try {
       ResultSet resultSet = jdbcDao.query(sql, params);
       while (resultSet.next()) {
-//        myLogger.info(resultSet.getString("group_name"));
         groupNameArray.add(resultSet.getString("group_name"));
       }
       myLogger.info(groupNameArray.toString());

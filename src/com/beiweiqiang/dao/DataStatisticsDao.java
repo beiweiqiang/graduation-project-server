@@ -15,17 +15,14 @@ public class DataStatisticsDao {
     this.jdbcDao = new JDBCDao();
   }
 
-  public String queryWordFrequency(DataStatistics dataStatistics) throws SQLException {
-    return query(dataStatistics, "wordFrequency");
-  }
-
-  public String queryGroupChattingFrenquencyFrequency(DataStatistics dataStatistics) throws SQLException {
-    return query(dataStatistics, "groupChattingFrenquency");
-  }
-
-  private String query(DataStatistics dataStatistics, String type) throws SQLException {
-    sql = "SELECT `value` FROM data_statistics WHERE user_id=? AND type=? ORDER BY create_time DESC LIMIT 1;";
-    String[] params = { dataStatistics.getUserId() + "", type };
+  public String query(DataStatistics dataStatistics) throws SQLException {
+    int type = dataStatistics.getType();
+    int userId = dataStatistics.getUserId();
+    sql = "select value from data_statistics where user_id=? and type=? order by create_time desc limit 1;";
+    String[] params = { userId + "", type + "" };
+    if (type == 0) {
+      params[0] = "0";
+    }
     ResultSet rs = jdbcDao.query(sql, params);
     rs.next();
     return rs.getString("value");

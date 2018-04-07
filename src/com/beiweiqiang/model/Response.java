@@ -1,5 +1,7 @@
 package com.beiweiqiang.model;
 
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+
 public class Response {
   private int code;
   private String msg;
@@ -38,5 +40,10 @@ public class Response {
 
   public void setData(Object data) {
     this.data = data;
+  }
+
+  @Override
+  public String toString() {
+    return ReflectionToStringBuilder.toString(this);
   }
 }

@@ -1,29 +1,28 @@
 package com.beiweiqiang.model;
 
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+
 public class DataStatistics {
   private int userId;
   private String value;
-  private String groupName;
+  private int type;
 
-  public DataStatistics(int userId) {
-    this.userId = userId;
+  public int getType() {
+    return type;
   }
 
-  public DataStatistics(int userId, String groupName) {
+  public void setType(int type) {
+    this.type = type;
+  }
+
+  public DataStatistics(int userId, int type) {
+
     this.userId = userId;
-    this.groupName = groupName;
+    this.type = type;
   }
 
   public int getUserId() {
     return userId;
-  }
-
-  public String getGroupName() {
-    return groupName;
-  }
-
-  public void setGroupName(String groupName) {
-    this.groupName = groupName;
   }
 
   public void setUserId(int userId) {
@@ -36,5 +35,10 @@ public class DataStatistics {
 
   public void setValue(String value) {
     this.value = value;
+  }
+
+  @Override
+  public String toString() {
+    return ReflectionToStringBuilder.toString(this);
   }
 }

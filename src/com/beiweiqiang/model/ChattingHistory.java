@@ -22,6 +22,12 @@ public class ChattingHistory {
   public ChattingHistory() {
   }
 
+  public ChattingHistory(int userId, String originTitle, String originContent) {
+    this.userId = userId;
+    this.originTitle = originTitle;
+    this.originContent = originContent;
+  }
+
   public ChattingHistory(int userId, Timestamp createTime, String originTitle, String originContent) {
     this.userId = userId;
     this.createTime = createTime;
