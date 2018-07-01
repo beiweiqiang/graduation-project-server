@@ -17,4 +17,8 @@ public class ClassCast {
     );
     return retMap;
   }
+
+  public static int doubleToInt(Double d) {
+    return d.intValue();
+  }
 }

@@ -40,5 +40,8 @@
     <orderEntry type="library" name="commons-logging-1.2" level="project" />
     <orderEntry type="library" name="commons-io-2.5" level="project" />
     <orderEntry type="library" name="commons-lang3-3.7" level="project" />
+    <orderEntry type="library" name="httpclient-4.3.4" level="project" />
+    <orderEntry type="library" name="httpcore-4.4.9" level="project" />
+    <orderEntry type="library" name="json-20180130" level="project" />
   </component>
 </module>
